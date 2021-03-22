@@ -14,6 +14,9 @@ def multiply(a, b, *args):
     return a * b * z
 
 def divide(a, b):
+    if b == 0:
+        print("Nie wolno dzielić przez 0")
+        exit(1)
     return a / b
 
 def get_data():
@@ -21,21 +24,13 @@ def get_data():
     a = int(input('podaj a: '))
     b = int(input('podaj b: '))
     args = []
-    if op == "+":
+    if op in "+*":
         while True:
             x = input("Podaj kolejną liczbę lub q by zakończyć: ")
             if x == 'q':
                 break
             args.append(int(x))
-    elif op == "-":
-        pass
-    elif op == "*":
-        while True:
-            x = input("Podaj kolejną liczbę lub q by zakończyć: ")
-            if x == 'q':
-                break
-            args.append(int(x))
-    elif op == "/":
+    elif op in "-/":
         pass
     else:
         print("Zły wybór")
